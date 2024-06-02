@@ -1,0 +1,42 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+exception.o: exception.S
+keyboard_link.o: keyboard_link.S
+pit_link.o: pit_link.S
+rtc_link.o: rtc_link.S
+system_call_link.o: system_call_link.S
+x86_desc.o: x86_desc.S x86_desc.h types.h
+directory.o: directory.c directory.h file_system.h lib.h types.h \
+  terminal.h
+file.o: file.c file.h directory.h file_system.h lib.h types.h
+file_system.o: file_system.c file_system.h lib.h types.h
+i8259.o: i8259.c i8259.h types.h lib.h
+idt.o: idt.c idt.h x86_desc.h types.h exception.h lib.h system_call.h \
+  i8259.h rtc.h keyboard.h terminal.h keyboard_link.h rtc_link.h pit.h \
+  processes.h file.h directory.h file_system.h paging.h pit_link.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h lib.h i8259.h debug.h \
+  tests.h idt.h exception.h keyboard.h system_call.h rtc.h paging.h \
+  file.h directory.h file_system.h processes.h terminal.h pit.h
+keyboard.o: keyboard.c keyboard.h types.h i8259.h idt.h x86_desc.h \
+  exception.h system_call.h lib.h terminal.h processes.h file.h \
+  directory.h file_system.h paging.h rtc.h pit.h
+lib.o: lib.c lib.h types.h processes.h file.h directory.h file_system.h \
+  paging.h x86_desc.h rtc.h system_call.h terminal.h i8259.h pit.h idt.h \
+  exception.h
+paging.o: paging.c paging.h lib.h types.h x86_desc.h
+pit.o: pit.c pit.h lib.h types.h i8259.h idt.h x86_desc.h exception.h \
+  system_call.h processes.h file.h directory.h file_system.h paging.h \
+  rtc.h terminal.h keyboard.h
+processes.o: processes.c processes.h file.h directory.h file_system.h \
+  lib.h types.h paging.h x86_desc.h rtc.h system_call.h terminal.h \
+  i8259.h pit.h idt.h exception.h
+rtc.o: rtc.c rtc.h lib.h types.h system_call.h i8259.h idt.h x86_desc.h \
+  exception.h processes.h file.h directory.h file_system.h paging.h \
+  terminal.h pit.h
+system_call.o: system_call.c system_call.h lib.h types.h file_system.h \
+  paging.h x86_desc.h processes.h file.h directory.h rtc.h terminal.h \
+  i8259.h pit.h idt.h exception.h
+terminal.o: terminal.c terminal.h lib.h types.h idt.h x86_desc.h \
+  exception.h keyboard.h i8259.h system_call.h processes.h file.h \
+  directory.h file_system.h paging.h rtc.h pit.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h terminal.h rtc.h \
+  system_call.h file.h directory.h file_system.h
