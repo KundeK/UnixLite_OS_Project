@@ -1,4 +1,4 @@
-# Project Overview
+# Project Summary
 
 This project involved the development of a Unix-like operating system from scratch, focusing on critical OS components, system calls, file system integration, and advanced scheduling functionalities. The goal was to gain hands-on experience in building core OS features and ensuring efficient multitasking and program execution.
 
